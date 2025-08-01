@@ -174,87 +174,123 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Chat Box Start
 
- 
+ const resume = {
+  name: "Musraf Musstack",
+  title: "Civil Engineer",
+  address: "No 14 Bharathipuram 2nd Street, Nagal Nagar, Dindigul - 624003",
+  location: "Dindigul, Tamil Nadu, India",
+  email: "musrafmusttack1399@gmail.com",
+  phone: "+91 63819 72889",
+  linkedin: "https://www.linkedin.com/in/musraf-musttack-630997289",
+  experience: "3 years",
+  skills: [
+    "AutoCAD", "Revit", "SketchUp", "Civil 3D", "V-Ray",
+    "MS Word", "MS Excel", "MS PowerPoint",
+    "Site Supervision", "Project Management", "Construction Planning"
+  ],
+  industry: [
+    "Drafting & 3D Modeling", "Construction Documentation", "Design Visualization",
+    "Residential Buildings", "Commercial Construction",
+    "Foundation Engineering", "Estimation", "Project Coordination", "Site Inspection"
+  ],
+  softskills: [
+    "Communication", "Problem-Solving", "Team Collaboration", "Time Management",
+    "Attention to Detail", "Adaptability", "Analytical Thinking", "Team Leadership"
+  ],
+  languages: "English, Tamil, Hindi",
+  education: [
+    "B.E. Civil Engineering – Anna University (2019 – 2022)",
+    "Diploma in Civil Engineering – Tamil Nadu Dept. of Technical Education (2016 – 2019)"
+  ],
+  currentJob: "Site Engineer at Safeena Construction (Mar 2023 – Present)",
+  pastJob: "Site Supervisor at Rani Fancy Construction (Mar 2022 – Mar 2023)"
+};
 
-const resume = {
-      name: "Musraf Musttack",
-      title: "Civil Engineer",
-      location: "Dindigul, Tamil Nadu, India",
-      email: "musrafmusttack1399@gmail.com",
-      phone: "+91 63819 72889",
-      experience: "3 years",
-      skills: [
-        "AutoCAD", "Revit", "SketchUp", "Estimation", "BOQ Preparation", 
-        "MS Excel", "Site Supervision", "2D & 3D Drafting", "Drawing Interpretation"
-      ],
-      education: [
-        "B.E. Civil Engineering – Anna University (2019 – 2022)",
-        "Diploma – Dept. of Technical Education, Tamil Nadu (2016 – 2019)"
-      ],
-      languages: "Tamil (Fluent), English (Fluent), Hindi (Basic)"
-    };
+function getReply(message) {
+  const msg = message.toLowerCase();
 
-    function getReply(message) {
-      const msg = message.toLowerCase();
+  if (msg.includes("name")) return `My name is ${resume.name}, a ${resume.title}.`;
+  if (msg.includes("age")) return `I am 25 years old.`;
+  if (msg.includes("dob date of Birth") || msg.includes("birth")) return `My date of birth is 03th August 2000.`;
+  if (msg.includes("address")) return `My address is ${resume.address}.`;
+  if (msg.includes("experience")) return `I have ${resume.experience} of experience in residential and commercial building projects.`;
+  if (msg.includes("current") || msg.includes("working on")) return `Currently, I'm working as ${resume.currentJob}.`;
+  if (msg.includes("current ,Are you currently working ?") || msg.includes("working on")) return `Currently, I'm working as ${resume.currentJob}.`;
+  if (msg.includes("skill") || msg.includes("tools")) return `My top skills include: ${resume.skills.join(", ")}.`;
+  if (msg.includes("industry")) return `I have experience in: ${resume.industry.join(", ")}.`;
+  if (msg.includes("soft , soft skills") || msg.includes("strength")) return `My soft skills include: ${resume.softskills.join(", ")}.`;
+  if (msg.includes("language")) return `I speak ${resume.languages}.`;
+  if (msg.includes("education")) return `I completed:\n- ${resume.education.join("\n- ")}`;
+  if (msg.includes("contact") || msg.includes("email") || msg.includes("phone")) return `You can reach me at 📧 ${resume.email} or 📞 ${resume.phone}.`;
+  if (msg.includes("linkedin")) return `Here is my LinkedIn profile: ${resume.linkedin}`;
+  if (msg.includes("autocad") || msg.includes("revit") || msg.includes("sketchup")) return `Yes, I'm proficient in AutoCAD, Revit, and SketchUp — I create 2D & 3D drawings.`;
+  if (msg.includes("site") || msg.includes("supervision")) return `I have hands-on experience in site supervision, safety enforcement, and quality control.`;
+  if (msg.includes("name")) return `My name is ${resume.name}, a ${resume.title}.`;
+  if (msg.includes("address")) return `My address is ${resume.address}.`;
+  if (msg.includes("summary")) return `I'm a skilled Civil Engineer with ${resume.experience} specializing in residential and commercial projects. I excel in site supervision, project coordination, and delivering quality work on time.`;
+  if (msg.includes("goal") || msg.includes("career")) return `My career goal is to grow as a project manager in civil engineering, focusing on innovative construction methods and quality standards.`;
+  if (msg.includes("experience")) return `I have ${resume.experience} of experience in residential, commercial, and mosque projects.`;
+  if (msg.includes("current") || msg.includes("working on")) return `Currently, I'm working as ${resume.currentJob}.`;
+  if (msg.includes("previous") || msg.includes("past job")) return `Previously, I worked as ${resume.pastJob}.`;
+  if (msg.includes("project")) return `I have worked on mosque projects, residential buildings, and commercial constructions, handling site supervision, drafting, and estimation.`;
+  if (msg.includes("achievement")) return `One of my achievements was successfully coordinating a mosque project from start to finish, meeting safety, quality, and delivery timelines.`;
+  if (msg.includes("skill") || msg.includes("tools")) return `My top skills include: ${resume.skills.join(", ")}.`;
+  if (msg.includes("industry")) return `I have experience in: ${resume.industry.join(", ")}.`;
+  if (msg.includes("soft") || msg.includes("strength")) return `My soft skills include: ${resume.softskills.join(", ")}.`;
+  if (msg.includes("software")) return `I am proficient in AutoCAD, Revit, SketchUp, Civil 3D, V-Ray, MS Word, Excel, and PowerPoint.`;
+  if (msg.includes("team") || msg.includes("manage")) return `I have led site teams, coordinated with engineers, contractors, and laborers to ensure project delivery and safety.`;
+  if (msg.includes("relocate") || msg.includes("abroad")) return `Yes, I am open to relocation opportunities including Dubai and other international projects.`;
+  if (msg.includes("education") || msg.includes("study")) return `I completed:\n- ${resume.education.join("\n- ")}`;
+  if (msg.includes("contact") || msg.includes("email") || msg.includes("phone")) return `You can reach me at 📧 ${resume.email} or 📞 ${resume.phone}.`;
+  if (msg.includes("linkedin")) return `Here is my LinkedIn profile: ${resume.linkedin}`;
+  if (msg.includes("language")) return `I speak ${resume.languages}. Tamil and English fluently, and basic Hindi.`;
+  if (msg.includes("autocad") || msg.includes("revit") || msg.includes("sketchup")) return `Yes, I'm proficient in AutoCAD, Revit, and SketchUp — I create both 2D and 3D drawings.`;
+  if (msg.includes("draft") || msg.includes("drawing")) return `I prepare accurate 2D & 3D drawings and interpret construction plans effectively.`;
+  if (msg.includes("site") || msg.includes("supervision")) return `I have nearly 3 years of hands-on experience in site supervision, safety enforcement, and quality control.`;
+  if (msg.includes("certification") || msg.includes("course")) return `I have formal training in Civil Engineering through my Diploma and Bachelor's degree programs.`;
+  if (msg.includes("future") || msg.includes("plan")) return `In the future, I aim to specialize in large-scale infrastructure projects and project management.`;
 
-      if (msg.includes("name")) return `My name is ${resume.name}, a ${resume.title}.`;
-      if (msg.includes("experience")) return `I have ${resume.experience} of experience in civil engineering.`;
-      if (msg.includes("current") || msg.includes("working on")) return `Currently, I'm working on a mosque project at Safeena Construction, Tamil Nadu.`;
-      if (msg.includes("previous") || msg.includes("past job")) return `Previously, I worked as a Site Supervisor at Rani Fancy Construction.`;
-      if (msg.includes("skill") || msg.includes("tools")) return `My top skills include: ${resume.skills.join(", ")}.`;
-      if (msg.includes("project") && msg.includes("type")) return `I've worked on residential, commercial, and religious (mosque) projects.`;
-      if (msg.includes("supervision") || msg.includes("site")) return `Yes, I have hands-on experience in site supervision for nearly 3 years.`;
-      if (msg.includes("software")) return `I use AutoCAD, Revit, SketchUp, MS Excel, Word, and PowerPoint.`;
-      if (msg.includes("strength") || msg.includes("focus")) return `My strengths are quality control, safety enforcement, team coordination, and on-time delivery.`;
-      if (msg.includes("location") || msg.includes("based")) return `I'm currently based in ${resume.location}.`;
-      if (msg.includes("relocate") || msg.includes("dubai")) return `Yes, I'm ready to relocate to Dubai or anywhere in the UAE.`;
-      if (msg.includes("education") || msg.includes("study")) return `I completed:\n- ${resume.education.join("\n- ")}`;
-      if (msg.includes("language")) return `I speak Tamil (fluent), English (fluent), and basic Hindi.`;
-      if (msg.includes("contact") || msg.includes("email") || msg.includes("phone")) return `You can reach me at 📧 ${resume.email} or 📞 ${resume.phone}.`;
-      if (msg.includes("autocad") || msg.includes("revit") || msg.includes("sketchup")) return `Yes, I'm proficient in AutoCAD, Revit, and SketchUp — I create both 2D and 3D drawings.`;
-      if (msg.includes("draft") || msg.includes("draw")) return `I prepare 2D & 3D drawings and interpret construction plans accurately.`;
-      if (msg.includes("passport")) return `Yes, my passport number is W9640566 and it's valid until 27/03/2033.`;
+  return "I'm not sure how to answer that. Try asking about my experience, projects, achievements, or education!";
+}
 
-      return "I'm not sure how to answer that. Try asking about my experience, projects, skills, or education!";
-    }
+// ✅ Chatbox UI Controls
+const chatToggleBtn = document.getElementById('chatToggleBtn');
+const chatbox = document.getElementById('chatbox');
+const closeChat = document.getElementById('closeChat');
+const sendMsg = document.getElementById('sendMsg');
+const chatInput = document.getElementById('chatInput');
+const chatBody = document.getElementById('chatBody');
 
-    const chatToggleBtn = document.getElementById('chatToggleBtn');
-    const chatbox = document.getElementById('chatbox');
-    const closeChat = document.getElementById('closeChat');
-    const sendMsg = document.getElementById('sendMsg');
-    const chatInput = document.getElementById('chatInput');
-    const chatBody = document.getElementById('chatBody');
+chatToggleBtn.onclick = () => {
+  chatbox.style.display = 'flex';
+};
 
-    chatToggleBtn.onclick = () => {
-      chatbox.style.display = 'flex';
-    };
+closeChat.onclick = () => {
+  chatbox.style.display = 'none';
+};
 
-    closeChat.onclick = () => {
-      chatbox.style.display = 'none';
-    };
+sendMsg.onclick = () => {
+  const userText = chatInput.value.trim();
+  if (!userText) return;
 
-    sendMsg.onclick = () => {
-      const userText = chatInput.value.trim();
-      if (!userText) return;
+  const userDiv = document.createElement('div');
+  userDiv.className = 'chat-msg user';
+  userDiv.textContent = userText;
+  chatBody.appendChild(userDiv);
 
-      const userDiv = document.createElement('div');
-      userDiv.className = 'chat-msg user';
-      userDiv.textContent = userText;
-      chatBody.appendChild(userDiv);
+  const botReply = document.createElement('div');
+  botReply.className = 'chat-msg bot';
+  botReply.textContent = getReply(userText);
 
-      const botReply = document.createElement('div');
-      botReply.className = 'chat-msg bot';
-      botReply.textContent = getReply(userText);
+  setTimeout(() => {
+    chatBody.appendChild(botReply);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }, 500);
 
-      setTimeout(() => {
-        chatBody.appendChild(botReply);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }, 500);
+  chatInput.value = "";
+};
 
-      chatInput.value = "";
-    };
-
-    window.addEventListener("scroll", () => {
+window.addEventListener("scroll", () => {
   const chatToggleBtn = document.getElementById("chatToggleBtn");
   if (window.scrollY > 150) {
     chatToggleBtn.classList.add("show");
@@ -263,11 +299,11 @@ const resume = {
   }
 });
 
-
-// 👇 Important: Make sure it's hidden on load
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("chatToggleBtn").classList.remove("show");
 });
+
+
 
 // Chat Box End
 
